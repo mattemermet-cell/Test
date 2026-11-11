@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maybach S 680 — Immersion</title>
+  <meta name="description" content="Expérience immersive autour de la Mercedes-Maybach S 680. Projet démo non officiel, médias générés par IA avec Higgsfield.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader__word" aria-label="Maybach">
+      <span>M</span><span>A</span><span>Y</span><span>B</span><span>A</span><span>C</span><span>H</span>
+    </div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__pct" id="loaderPct">0%</div>
+  </div>
+
+  <!-- ÉTOILE MERCEDES ERRANTE -->
+  <button class="star" id="star" aria-label="Étoile Mercedes">
+    <svg viewBox="-50 -50 100 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset=".35" stop-color="#b9bcc2"/>
+          <stop offset=".55" stop-color="#6d7178"/>
+          <stop offset=".75" stop-color="#e6e8ec"/>
+          <stop offset="1" stop-color="#8a8e95"/>
+        </linearGradient>
+      </defs>
+      <circle r="46" fill="none" stroke="url(#chrome)" stroke-width="5"/>
+      <g id="starArms"></g>
+    </svg>
+  </button>
+
+  <div class="cursor" id="cursor"><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#hero" class="nav__logo">MAYBACH</a>
+    <nav class="nav__links">
+      <a href="#specs">Technique</a>
+      <a href="#tour">Extérieur</a>
+      <a href="#enter">Intérieur</a>
+      <a href="#monde">Univers</a>
+    </nav>
+    <div class="nav__progress"><i id="navProgress"></i></div>
+  </header>
+
+  <main>
+    <!-- 1. HERO : EMBLÈME → BUILD -->
+    <section class="pin" id="hero" style="--len:500vh">
+      <div class="stage">
+        <div class="layer emblem" id="emblemLayer">
+          <img id="emblemImg" alt="Emblème Maybach sur le montant C" />
+          <div class="emblem__glare"></div>
+        </div>
+
+        <div class="layer build" id="buildLayer">
+          <img class="build__wire" id="wireImg" alt="" />
+          <div class="build__real" id="realWrap"><img id="realImg" alt="Mercedes-Maybach S 680" /></div>
+          <div class="build__scan" id="scan"></div>
+          <canvas class="build__sparks" id="sparks"></canvas>
+        </div>
+
+        <div class="hero__copy" id="heroCopy">
+          <p class="eyebrow">Mercedes-Maybach</p>
+          <h1 class="hero__title"><span>S</span><span>680</span></h1>
+          <p class="hero__sub">V12 · 4MATIC · Édition bi-ton</p>
+        </div>
+
+        <div class="hud" id="hud">
+          <div class="hud__row"><span>ASSEMBLAGE</span><b id="hudPct">000</b><em>%</em></div>
+          <ul class="hud__steps" id="hudSteps">
+            <li>Châssis aluminium-acier</li>
+            <li>Moteur V12 biturbo</li>
+            <li>Carrosserie & chromes</li>
+            <li>Peinture bi-ton à la main</li>
+            <li>Contrôle final</li>
+          </ul>
+        </div>
+
+        <div class="hero__end" id="heroEnd">
+          <p class="eyebrow">Assemblée à Sindelfingen</p>
+          <h2>L'exception, pièce par pièce.</h2>
+        </div>
+
+        <div class="scroll-hint" id="scrollHint"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- 2. ÉCRAN NOIR : FICHE TECHNIQUE -->
+    <section class="pin" id="specs" style="--len:420vh">
+      <div class="stage stage--black">
+        <div class="specs__intro" id="specsIntro">
+          <p class="eyebrow">Fiche technique</p>
+          <h2>Le silence a un moteur.</h2>
+        </div>
+        <div class="spec" data-spec>
+          <div class="spec__num"><b data-to="12" data-dec="0">0</b><small>cyl.</small></div>
+          <div class="spec__label">V12 biturbo · 5 980 cm³<br><span>Le cœur M279, assemblé à la main</span></div>
+        </div>
+        <div class="spec" data-spec>
+          <div class="spec__num"><b data-to="612" data-dec="0">0</b><small>ch</small></div>
+          <div class="spec__label">Puissance · 450 kW<br><span>À 5 250 tr/min</span></div>
+        </div>
+        <div class="spec" data-spec>
+          <div class="spec__num"><b data-to="900" data-dec="0">0</b><small>Nm</small></div>
+          <div class="spec__label">Couple maximal<br><span>Dès 2 000 tr/min</span></div>
+        </div>
+        <div class="spec" data-spec>
+          <div class="spec__num"><b data-to="4.5" data-dec="1">0</b><small>s</small></div>
+          <div class="spec__label">0 → 100 km/h<br><span>Pour 2,4 tonnes de sérénité</span></div>
+        </div>
+        <div class="spec" data-spec>
+          <div class="spec__num"><b data-to="3396" data-dec="0">0</b><small>mm</small></div>
+          <div class="spec__label">Empattement<br><span>+18 cm d'espace arrière vs Classe S longue</span></div>
+        </div>
+        <div class="specs__grid" id="specsGrid">
+          <div><span>Longueur</span><b>5 469 mm</b></div>
+          <div><span>Vitesse max.</span><b>250 km/h</b></div>
+          <div><span>Transmission</span><b>9G-TRONIC</b></div>
+          <div><span>Transmission intégrale</span><b>4MATIC</b></div>
+          <div><span>Suspension</span><b>AIRMATIC</b></div>
+          <div><span>Roues arrière</span><b>Directrices 10°</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TOUR DE LA VOITURE -->
+    <section class="pin" id="tour" style="--len:500vh">
+      <div class="stage">
+        <div class="media-scrub" id="tourMedia">
+          <video id="tourVideo" muted playsinline preload="auto"></video>
+          <img class="fallback fallback--a" id="tourFallbackA" alt="" />
+          <img class="fallback fallback--b" id="tourFallbackB" alt="" />
+        </div>
+        <div class="vignette"></div>
+        <div class="tour__title" id="tourTitle">
+          <p class="eyebrow">Extérieur</p>
+          <h2>Faites le tour.</h2>
+        </div>
+        <div class="callout" data-from=".12" data-to=".32" style="--x:22%;--y:58%">
+          <i></i><div><b>Calandre Maybach</b><span>Lamelles verticales chromées, logo en relief</span></div>
+        </div>
+        <div class="callout" data-from=".34" data-to=".54" style="--x:42%;--y:72%">
+          <i></i><div><b>Jantes forgées</b><span>Design multibranche Maybach, 20 pouces</span></div>
+        </div>
+        <div class="callout" data-from=".56" data-to=".76" style="--x:62%;--y:38%">
+          <i></i><div><b>Peinture bi-ton</b><span>Noir obsidienne / argent high-tech, filet peint à la main</span></div>
+        </div>
+        <div class="callout" data-from=".78" data-to=".98" style="--x:72%;--y:52%">
+          <i></i><div><b>Signature arrière</b><span>Feux LED, double sortie chromée</span></div>
+        </div>
+        <div class="dial"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><circle id="tourDial" cx="20" cy="20" r="18"/></svg><span id="tourDeg">0°</span></div>
+      </div>
+    </section>
+
+    <!-- 4. ENTRÉE DANS L'HABITACLE -->
+    <section class="pin" id="enter" style="--len:600vh">
+      <div class="stage">
+        <div class="media-scrub" id="enterMedia">
+          <video id="enterVideo" muted playsinline preload="auto"></video>
+          <img class="fallback fallback--a" id="enterFallbackA" alt="" />
+        </div>
+        <div class="interior" id="interior">
+          <img id="interiorImg" alt="Habitacle cuir nappa blanc et ciel étoilé" />
+          <canvas id="starsky"></canvas>
+        </div>
+        <div class="vignette"></div>
+        <div class="enter__title" id="enterTitle">
+          <p class="eyebrow">Intérieur</p>
+          <h2>Entrez.</h2>
+        </div>
+        <div class="interior__copy" id="interiorCopy">
+          <p class="eyebrow">Cuir nappa blanc cristal</p>
+          <h2>Un ciel étoilé,<br>rien que pour vous.</h2>
+          <ul>
+            <li><b>Sièges Executive</b> inclinables à 43,5°, massage à pierres chaudes</li>
+            <li><b>Ciel étoilé</b> à fibres optiques (personnalisation sur mesure)</li>
+            <li><b>Burmester® 4D</b> haut de gamme, transducteurs dans les sièges</li>
+            <li><b>Bar réfrigéré</b> & flûtes à champagne en argent</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LE RESTE DU SITE -->
+    <section class="monde" id="monde">
+      <div class="monde__head">
+        <p class="eyebrow">L'univers Maybach</p>
+        <h2 class="reveal">Plus qu'une voiture.<br><em>Une résidence en mouvement.</em></h2>
+      </div>
+
+      <div class="split">
+        <div class="split__img parallax"><img id="wheelImg" alt="Jante forgée Maybach" /></div>
+        <div class="split__txt">
+          <p class="eyebrow">L'art du détail</p>
+          <h3 class="reveal">Chaque branche,<br>une signature.</h3>
+          <p class="reveal">Les jantes forgées Maybach reprennent le dessin multibranche historique. Le capuchon central porte le double M, toujours droit, même en mouvement.</p>
+        </div>
+      </div>
+
+      <div class="drag360" id="drag360">
+        <div class="drag360__media">
+          <video id="dragVideo" muted playsinline preload="auto"></video>
+          <img id="dragFallback" alt="" />
+        </div>
+        <div class="drag360__ui">
+          <p class="eyebrow">Interactif</p>
+          <h3>Glissez pour la faire tourner</h3>
+          <div class="drag360__bar"><i id="dragBar"></i></div>
+        </div>
+      </div>
+
+      <div class="hscroll" id="hscroll">
+        <div class="hscroll__track" id="hTrack">
+          <figure class="card"><img data-media="emblem" alt=""><figcaption><b>01</b> Le double M</figcaption></figure>
+          <figure class="card"><img data-media="exterior" alt=""><figcaption><b>02</b> Silhouette bi-ton</figcaption></figure>
+          <figure class="card"><img data-media="rear" alt=""><figcaption><b>03</b> Arrière souverain</figcaption></figure>
+          <figure class="card"><img data-media="wheel" alt=""><figcaption><b>04</b> Forgé</figcaption></figure>
+          <figure class="card"><img data-media="interior" alt=""><figcaption><b>05</b> Le salon arrière</figcaption></figure>
+          <figure class="card"><img data-media="wireframe" alt=""><figcaption><b>06</b> L'ingénierie</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="table">
+        <p class="eyebrow">Données complètes</p>
+        <h3 class="reveal">Mercedes-Maybach S 680 4MATIC</h3>
+        <dl>
+          <div><dt>Moteur</dt><dd>V12 biturbo M279, 5 980 cm³</dd></div>
+          <div><dt>Puissance</dt><dd>450 kW (612 ch)</dd></div>
+          <div><dt>Couple</dt><dd>900 Nm</dd></div>
+          <div><dt>0–100 km/h</dt><dd>4,5 s</dd></div>
+          <div><dt>Vitesse maximale</dt><dd>250 km/h (limitée)</dd></div>
+          <div><dt>Boîte</dt><dd>9G-TRONIC automatique</dd></div>
+          <div><dt>Longueur / Empattement</dt><dd>5 469 mm / 3 396 mm</dd></div>
+          <div><dt>Suspension</dt><dd>AIRMATIC + E-ACTIVE BODY CONTROL (selon finition)</dd></div>
+          <div><dt>Places</dt><dd>4 ou 5, sièges arrière Executive</dd></div>
+        </dl>
+      </div>
+
+      <div class="outro">
+        <h2 class="reveal">Le luxe ne s'explique pas.<br><em>Il se vit.</em></h2>
+        <a href="#hero" class="btn" id="backTop">Revivre l'expérience</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Projet démo non officiel, sans lien avec Mercedes-Benz AG. Images et vidéos générées par IA avec Higgsfield. Données techniques indicatives.</p>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
